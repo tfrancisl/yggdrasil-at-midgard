@@ -1,6 +1,5 @@
 {
   nixosSystem,
-  nixpkgs-source,
   pkgs,
   lib,
   ...
@@ -19,7 +18,6 @@ in
     nixosSystem {
       inherit system;
       specialArgs = {
-        inherit nixpkgs-source;
       };
 
       modules = listNixFilesRecursive ./machines/yggdrasil;

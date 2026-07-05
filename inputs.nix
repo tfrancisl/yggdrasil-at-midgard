@@ -1,9 +1,9 @@
 let
   inputs = import ./.tack;
   inherit (inputs) nixpkgs;
-  lib = import "${nixpkgs}/lib";
-  nixosSystem = import "${nixpkgs}/nixos/lib/eval-config.nix";
-  nixpkgs-source = inputs.nixpkgs;
+  inherit (nixpkgs) lib;
+  inherit (lib) nixosSystem;
+
   pkgs = nixpkgs.legacyPackages.x86_64-linux;
 in
 {
@@ -12,7 +12,6 @@ in
     nixpkgs
     nixosSystem
     lib
-    nixpkgs-source
     pkgs
     ;
 
