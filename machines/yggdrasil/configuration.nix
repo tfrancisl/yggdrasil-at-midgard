@@ -1,11 +1,6 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
-  imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-  ];
-
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
   boot.loader.grub.enable = false;
   # Enables the generation of /boot/extlinux/extlinux.conf
@@ -28,6 +23,7 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     uid = 1000;
+    shell = pkgs.fish;
   };
 
   services.openssh.enable = true;
