@@ -1,12 +1,10 @@
 { pkgs, ... }:
 
 {
-  # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
   boot.loader.grub.enable = false;
-  # Enables the generation of /boot/extlinux/extlinux.conf
   boot.loader.generic-extlinux-compatible.enable = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "yggdrasil";
   networking.networkmanager.enable = true;
 
   nix.settings = {
@@ -18,7 +16,7 @@
     allowed-users = [ "@wheel" ];
     trusted-users = [ "@wheel" ];
   };
-
+  programs.fish.enable = true;
   users.users.nixos = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
