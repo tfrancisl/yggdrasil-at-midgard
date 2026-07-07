@@ -1,4 +1,4 @@
-{ ... }: {
+_: {
   services = {
     pihole-web = {
       enable = true;
@@ -11,7 +11,6 @@
       settings = {
         dns = {
           upstreams = [
-            "9.9.9.9"
             "1.1.1.1"
           ];
           hosts = [
