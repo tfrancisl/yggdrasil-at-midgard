@@ -1,8 +1,14 @@
-_: {
+{ lib, ... }: {
+
+  networking.firewall.enable = false; # use the hosts firewall
+
   services = {
     pihole-web = {
       enable = true;
-      ports = [ "80" ];
+      ports = [
+        "80r"
+        "443so"
+      ];
     };
     pihole-ftl = {
       enable = true;
@@ -14,9 +20,18 @@ _: {
             "1.1.1.1"
           ];
           hosts = [
-            "192.168.1.224 yggdrasil.midgard.local"
-            "192.168.1.123 valhalla.midgard.local"
+            "192.168.1.224 yggdrasil.midgard.lan"
+            "192.168.1.123 valhalla.midgard.lan"
           ];
+          hostRecord = "yggdrasil,yggdrasil.midgard.lan,192.168.1.224";
+          piholePTR = "HOSTNAMEFQDN";
+          domain = {
+            name = "midgard.lan";
+            local = true;
+          };
+        };
+        webserver = {
+          domain = lib.mkForce "yggdrasil.midgard.lan";
         };
       };
       lists = [

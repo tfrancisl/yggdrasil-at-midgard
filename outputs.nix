@@ -10,11 +10,10 @@ let
     module: lib.filter (n: lib.strings.hasSuffix ".nix" n) (lib.filesystem.listFilesRecursive module);
 in
 {
-  nixosConfigurations.yggdrasil =
-    nixosSystem {
-      inherit system;
-      specialArgs = { };
-      modules = (listNixFilesRecursive ./machines/yggdrasil) ++ [ ./containers ];
-    };
+  nixosConfigurations.yggdrasil = nixosSystem {
+    inherit system;
+    specialArgs = { };
+    modules = (listNixFilesRecursive ./machines/yggdrasil) ++ [ ./containers ];
+  };
   formatter = pkgs.nixfmt-tree;
 }

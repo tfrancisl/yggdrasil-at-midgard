@@ -6,6 +6,7 @@
 
   networking = {
     hostName = "yggdrasil";
+    domain = "midgard.lan";
     networkmanager.enable = true;
   };
 

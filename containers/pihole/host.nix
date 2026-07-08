@@ -1,10 +1,11 @@
-_: {
+{ lib, ... }: {
   networking = {
     firewall = {
       allowedUDPPorts = [ 53 ];
       allowedTCPPorts = [
         53
         80
+        443
       ];
     };
   };
@@ -15,24 +16,9 @@ _: {
       ephemeral = false; # pihole has lots of state, this is unavoidable I think
       autoStart = true;
 
-      forwardPorts = [
-        {
-          containerPort = 80;
-          hostPort = 80;
-          protocol = "tcp";
-        }
-        {
-          containerPort = 53;
-          hostPort = 53;
-          protocol = "udp";
-        }
-        {
-          containerPort = 53;
-          hostPort = 53;
-          protocol = "tcp";
-        }
-      ];
-      config = import ./guest.nix { };
+      config = import ./guest.nix {
+        inherit lib; # can't we just use specialArgs to forward all of these?
+      };
     };
   };
 }
