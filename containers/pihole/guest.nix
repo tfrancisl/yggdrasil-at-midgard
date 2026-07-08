@@ -1,7 +1,5 @@
 { lib, ... }: {
-
   networking.firewall.enable = false; # use the hosts firewall
-
   services = {
     pihole-web = {
       enable = true;
