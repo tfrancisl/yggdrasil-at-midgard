@@ -1,13 +1,14 @@
-{ lib, modulesPath, ... }:
+{ pkgs, lib, ... }:
 {
-  imports = [
-    # FIXME figure out what I actually need from here
-    (modulesPath + "/installer/scan/not-detected.nix")
+  hardware.firmware = [
+    pkgs.linux-firmware
+    pkgs.raspberrypiWirelessFirmware
   ];
   boot = {
     initrd.availableKernelModules = [
       "xhci_pci"
       "usbhid"
+      "usb_storage"
     ];
     initrd.kernelModules = [ ];
     kernelModules = [ ];

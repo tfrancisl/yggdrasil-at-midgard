@@ -1,6 +1,7 @@
 let
   inputs = import ./inputs.nix;
-  inherit (inputs) pkgs;
+  system = builtins.currentSystem;
+  pkgs = inputs.nixpkgs.legacyPackages.${system};
 in
 pkgs.mkShell {
   name = "rpi4-server";
