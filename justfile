@@ -10,3 +10,8 @@ deploy:
         --target-host ratatoskr@yggdrasil.midgard.lan \
         --build-host ratatoskr@yggdrasil.midgard.lan \
         --file . nixosConfigurations.yggdrasil
+safe-deploy:
+    nh os boot \
+        --target-host ratatoskr@yggdrasil.midgard.lan \
+        --build-host ratatoskr@yggdrasil.midgard.lan \
+        --file . nixosConfigurations.yggdrasil
