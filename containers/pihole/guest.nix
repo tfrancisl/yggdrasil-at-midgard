@@ -10,8 +10,6 @@
     };
     pihole-ftl = {
       enable = true;
-      openFirewallWebserver = true;
-      openFirewallDNS = true;
       settings = {
         dns = {
           upstreams = [
