@@ -3,8 +3,8 @@
     "type": "github",
     "owner": "NixOS",
     "repo": "nixpkgs",
-    "rev": "531670d871c0e29724a02f3cbcac170adc65b58c",
-    "narHash": "sha256-ODZkEK9Gy50yg6h98u7KkitZ3oc/uuTFK00bh1CRdNA=",
-    "lastModified": 1785734586
+    "rev": "b25309931cfda5f0b8805f462a29897eeae50168",
+    "narHash": "sha256-qMSsgG+9tIdx282dMqGuJAUK3t6F36clM6efd0rXfes=",
+    "lastModified": 1791254437
   }
 }

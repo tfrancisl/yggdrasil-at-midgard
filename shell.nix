@@ -5,7 +5,9 @@ let
 in
 pkgs.mkShell {
   name = "rpi4-server";
+  TACK_DIR = "./.tack";
   packages = [
+    pkgs.tack
     pkgs.just
     pkgs.nixfmt-tree
     pkgs.deadnix
